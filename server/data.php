@@ -4,11 +4,12 @@
 	ini_set('display_errors', 'On');
 	
 	require(dirname(__FILE__) . '/lib/meekrodb.2.0.class.php');
+	require(dirname(__FILE__) . '/config.php');
 	
-	DB::$user = '';
-	DB::$password = '';
-	DB::$dbName = '';
-	DB::$host = '';
+	DB::$user = $db_user;
+	DB::$password = $db_pass;
+	DB::$dbName = $db_name;
+	DB::$host = $db_host;
 	DB::$error_handler = false; 
 	DB::$throw_exception_on_error = true; 
 	

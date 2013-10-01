@@ -13,7 +13,7 @@ $(function() {
 	  *  ARTICLE MODEL, LIST, VIEW
 	  * 
 	  **/
-	var pathToRoot = '/portfolio/journal/';
+	var pathToRoot = '/portfolio/Journal/';
 	var inCryptMode = false;
 
 	var Article = Backbone.Model.extend({
