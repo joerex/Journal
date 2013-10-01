@@ -1,0 +1,216 @@
+@font-face {
+    font-family: 'Oxygen';
+    src: url('../webfonts/OXYGENE1-webfont.eot');
+    src: url('../webfonts/OXYGENE1-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../webfonts/OXYGENE1-webfont.woff') format('woff'),
+         url('../webfonts/OXYGENE1-webfont.ttf') format('truetype'),
+         url('../webfonts/OXYGENE1-webfont.svg#Oxygene1Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WC';
+    src: url('../webfonts/WC_Rhesus_A_Bta-webfont.eot');
+    src: url('../webfonts/WC_Rhesus_A_Bta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../webfonts/WC_Rhesus_A_Bta-webfont.woff') format('woff'),
+         url('../webfonts/WC_Rhesus_A_Bta-webfont.ttf') format('truetype'),
+         url('../webfonts/WC_Rhesus_A_Bta-webfont.svg#WCRhesusABtaRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mido';
+    src: url('../webfonts/Mido-webfont.eot');
+    src: url('../webfonts/Mido-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../webfonts/Mido-webfont.woff') format('woff'),
+         url('../webfonts/Mido-webfont.ttf') format('truetype'),
+         url('../webfonts/Mido-webfont.svg#MidoMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {margin:0; padding:0;}
+
+body {
+	font-family:'Mido';}
+	
+article {
+	position:relative;
+	text-align: left;
+	font-size:18px;
+	margin: 10px 0;}
+	
+#app {
+	min-height: 200px;
+	padding:0;
+	width:100%;}
+	
+#main {
+	margin:20px 0 0;
+	float:left;
+	padding:0 70px;}
+	
+header {
+	margin: 0 0 20px;
+	padding: 5px;
+	position: fixed;
+	z-index: 98;
+	width: 50px;
+	height: 100%;
+	border-right: 1px solid #EEE;}
+	
+#add-article {
+	cursor: pointer;
+	display: block;
+	width:50px;
+	height:47px;
+	background: url(../images/add-btn.png) no-repeat 0 0;}
+	
+#add-article:hover {
+	background-position: 0 -46px;}
+	
+#add-section {
+	cursor: pointer;
+	background: black;
+	color: white;
+	padding: 10px;
+	display: block;
+	font-size: 12px;
+	width: 84px;
+	float:left;}
+	
+#add-section:hover {
+	color:red;}
+	
+.article-wrap {
+	width:770px;}
+	
+.editable {
+	width:590px;
+	padding: 23px 0 23px 15px;
+	float: left;
+	outline:0px solid transparent;
+	font-family:'WC';
+	min-height: 40px;}
+
+.article-controls {
+	position: relative;
+	display: none;
+	width: 90px;
+	float: left;
+	background: #EFEFEF;
+	padding: 28px 13px 33px 18px;
+	border-radius: 0 10px 10px 0 ;
+	border-left: 1px solid white;}
+	
+.edit-btn {
+	cursor: pointer;
+	background: black;
+	display: block;
+	margin: 14px 0 0;
+	padding: 4px 2px 2px 7px;
+	width: 75px;
+	color: white;
+	letter-spacing: 6px;
+	font-size: 22px;}
+	
+.delete-article-btn {
+	background: black;
+	color: white;
+	padding: 0 11px 6px;
+	border-radius: 15px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 100%;}
+	
+.html-toggle {
+	background: black;
+	color: white;
+	padding: 9px 12px;
+	border-radius: 15px;
+	cursor: pointer;
+	font-size:9px;
+	text-align: center;
+	line-height: 100%;}
+	
+.delete-article-btn:hover {
+	background:red;}
+	
+	
+[contentEditable=true] a {
+	cursor:pointer;}
+	
+	
+.editing-overlay {
+	display:none;
+	position:fixed;
+	z-index:99;
+	background:rgba(255,255,255,.8);
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;}
+	
+#crypt-mode {
+	display: block;
+	cursor:pointer;
+	padding:5px;
+	width:50px;
+	height:37px;
+	background: url(../images/crypt-btn.png) no-repeat 0 0;}
+	
+#crypt-mode:hover {
+	background-position: 0 -46px;}
+	
+#crypt-mode.unlocked {
+	background-position: 0 -93px;}
+	
+#crypt-mode.unlocked:hover {
+	background-position: 0 -137px;}
+	
+.decrypted {
+	font-family:'Mido'!important;}
+	
+.editing{
+	position:relative;
+	background:#FFECEC !important;
+	font-family:'Helvetica', 'Arial', sans-serif !important;
+	font-size:13px;}
+	
+.visible {
+	display:block;}
+	
+.active {
+	display:block;
+	opacity:1;}
+	
+.on {
+	background:#0CC;}
+
+.html-toggle:hover {
+	background:#0CF;}
+	
+.show-more {
+	background: #efefef;
+	border-radius: 5px;
+	padding: 15px;
+	display: block;
+	width:75px;
+	text-align: center;
+	margin: 40px 0 0;}
+	
+.show-more:hover {
+	background: black;
+	color: white;
+	cursor:pointer;}
+	
+.mouseover {
+	background:#efefef;}
+	
+.loading {
+	display: block;
+	width:100px;
+	height:100px;
+	margin:20px 0 0 20px;}
