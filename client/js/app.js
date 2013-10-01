@@ -13,7 +13,6 @@ $(function() {
 	  *  ARTICLE MODEL, LIST, VIEW
 	  * 
 	  **/
-	var pathToRoot = '/portfolio/Journal/';
 	var inCryptMode = false;
 
 	var Article = Backbone.Model.extend({
@@ -45,12 +44,12 @@ $(function() {
 			
 			model: Article,
 			
-			url: pathToRoot + 'server/data.php?collection=articles&',
+			url: 'server/data.php?collection=articles&',
 			
 			paginator_core: {
 				type: 'GET',
 				dataType: 'json',
-				url: pathToRoot + 'server/data.php?collection=articles&'
+				url: 'server/data.php?collection=articles&'
 			},
 			
 			paginator_ui: {
