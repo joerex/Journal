@@ -801,7 +801,6 @@
     // **parse** converts a response into a list of models to be added to the
     // collection. The default implementation is just to pass it through.
     parse: function(resp, xhr) {
-      
       return resp;
     },
 

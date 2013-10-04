@@ -45,6 +45,8 @@
 			}
 			try {
 				$result = DB::query('SELECT * FROM articles ORDER BY id DESC LIMIT '.$start.','.$limit);
+				$numrows = DB::query('SELECT COUNT(*) FROM articles;');
+				array_push($result, $numrows[0]['COUNT(*)']);
 				echo json_encode($result);
 			} catch(MeekroDBException $e) {
 				$error = $e->getMessage().'---'.$e->getQuery();

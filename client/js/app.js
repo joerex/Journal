@@ -55,14 +55,25 @@ $(function() {
 			paginator_ui: {
 				firstPage: 0,
 				currentPage: 0,
-				perPage: 20, 
+				perPage: 2, 
 				totalPages: 10
 			},
+			
+			morePages: true,
 			
 			server_api: {
 				'top': function() { return this.perPage },
 				'skip': function() { return this.currentPage * this.perPage },                                   
-			}
+			},
+			
+			parse: function(resp, xhr) {
+		      	this.totalPages = Math.floor((resp[resp.length -1] / this.perPage -1));
+		      	resp.pop();
+		      	if(this.currentPage == this.totalPages) {
+		      		this.morePages = false;
+		      	}
+		      	return resp;
+		    }
 			
 	});
 	
@@ -240,8 +251,6 @@ $(function() {
 			this.main = $('#main');
 			Articles.bind('add', this.addOneArticle, this);
 			Articles.bind('addnew', this.addNewArticle, this);
-			//Articles.bind('reset', this.addAllArticles, this);
-			//Articles.bind('all', this.render, this);
 
 			Articles.pager({
 				add: true,
@@ -250,6 +259,10 @@ $(function() {
 		        },
 		        success:function(){
 		        	$('.loading').css({display:'none'});
+		        	console.log(Articles.morePages);
+					if(Articles.morePages == false) {
+						$('.show-more').hide();
+					}
 		            //console.log("Successful fetch");
 		        }
 		    });
@@ -264,6 +277,10 @@ $(function() {
 		        },
 		        success:function(){
 		        	$('.loading').css({display:'none'});
+		        	console.log(Articles.morePages);
+					if(Articles.morePages == false) {
+						$('.show-more').hide();
+					}
 		            //console.log("Next page: successful fetch");
 		        }
 		    });
@@ -297,10 +314,6 @@ $(function() {
 				  inCryptMode = false;
 			}
 			
-		},
-		
-		render: function() {
-			this.main.show();
 		}
 	
 	
