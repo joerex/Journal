@@ -55,7 +55,7 @@ $(function() {
 			paginator_ui: {
 				firstPage: 0,
 				currentPage: 0,
-				perPage: 2, 
+				perPage: 10, 
 				totalPages: 10
 			},
 			
@@ -67,7 +67,7 @@ $(function() {
 			},
 			
 			parse: function(resp, xhr) {
-		      	this.totalPages = Math.floor((resp[resp.length -1] / this.perPage -1));
+		      	this.totalPages = Math.floor((resp[resp.length -1] / this.perPage));
 		      	resp.pop();
 		      	if(this.currentPage == this.totalPages) {
 		      		this.morePages = false;
@@ -259,7 +259,6 @@ $(function() {
 		        },
 		        success:function(){
 		        	$('.loading').css({display:'none'});
-		        	console.log(Articles.morePages);
 					if(Articles.morePages == false) {
 						$('.show-more').hide();
 					}
@@ -277,7 +276,6 @@ $(function() {
 		        },
 		        success:function(){
 		        	$('.loading').css({display:'none'});
-		        	console.log(Articles.morePages);
 					if(Articles.morePages == false) {
 						$('.show-more').hide();
 					}
