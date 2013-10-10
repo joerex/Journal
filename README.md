@@ -1,7 +1,7 @@
 Journal
 =======
 
-Basic Journal App (Backbone.js)
+Journal App (Backbone.js)
 
 
 Setup
